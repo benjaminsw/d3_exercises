@@ -13,7 +13,7 @@
         .data(theData)
         .enter()
         .append("p")
-        .text("hello ");
+        .text( function (d) { return d; } );
     </script>
 </body>
 </html> 
