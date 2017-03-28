@@ -76,14 +76,14 @@
 			function refresh(values){
 				//var values = d3.range(1000).map(d3.randomNormal(20,5));
 				var data = d3.histogram()
-				.bin(x.ticks(20))
+				.thresholds(x.ticks(20))
 				(values);
 
 				//Reset y domain using new data
 				var yMax = d3.max(data, function(d){return d.length});
 				var yMin = d3.min(data, function(d){return d.length});
 				y.domain([0, yMax]);
-				var colorScale = d3.scale.linear()
+				var colorScale = d3.scaleLinear()
 								.domain([yMin, yMax])
 								.range([d3.rgb(color).brighter(), d3.rgb(color).darker()]);
 
