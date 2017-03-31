@@ -79,6 +79,20 @@
 				.attr("transform", "translate(0," + height + ")")
 				.call(d3.axisBottom(x));
 
+      //adding buttons
+      var buttonNames = ["Sepal.Length",	"Sepal.Width",	"Petal.Length",	"Petal.Width"];
+
+      d3.select("body")
+        .append("section")
+        .selectAll("input")
+        .data(buttonNames)
+        .enter()
+        .append("input")
+        .attr("type","button")
+        .attr("class","button")
+        .attr("value", function (d){return d;} );
+        
+      
     </script>
 </body>
 </html> 
