@@ -25,10 +25,10 @@
 
 d3.select("body")
     .datum(irwinHallDistribution(10000, 10))
-  .call(histogramChart()
+	.call(histogramChart()
     .bins(d3.scale.linear().ticks(20))
     .tickFormat(d3.format(".02f")));
-
+//generate random data
 function irwinHallDistribution(n, m) {
   var distribution = [];
   for (var i = 0; i < n; i++) {
@@ -43,14 +43,17 @@ function irwinHallDistribution(n, m) {
 
 //JavaScript for Chart
 function histogramChart() {
+  //define margin width and height
   var margin = {top: 0, right: 0, bottom: 20, left: 0},
       width = 960,
       height = 500;
 
-  var histogram = d3.layout.histogram(),
-      x = d3.scale.ordinal(),
-      y = d3.scale.linear(),
-      xAxis = d3.svg.axis().scale(x).orient("bottom").tickSize(6, 0);
+  var histogram = d3.histogram(),
+      x = d3.scaleOrdinal(),
+      y = d3.scaleLinear(),
+      //xAxis = d3.svg.axis().scale(x).orient("bottom").tickSize(6, 0);
+	  //var xAxis = d3.svg.axis().scale(xRange).tickFormat(function(d) { return d.x;});
+	  xAxis = d3.axisBottom(x).tickFormat(6,0);
 
   function chart(selection) {
     selection.each(function(data) {
