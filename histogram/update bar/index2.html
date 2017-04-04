@@ -9,10 +9,33 @@
 </head>
 <body>
     <script type="text/javascript">
+      d3.json("data.json", function(error, data){
+        //throw error if any
+        if (error) throw error;
+
+        //print out data
+        //console.log(data);
+
+        //declare empty arrays to keep each attribute later
         var SepalLength	= [];
         var SepalWidth	= [];
         var PetalLength	= [];
         var PetalWidth  = [];
+
+        //function for toggling between data
+        function change(value){
+          if(value === 'SepalLength'){
+            update(data.SepalLength);
+          }else if (value === 'SepalWidth'){
+            update(data.SepalWidth);
+          }else if (value === 'PetalLength'){
+            update(data.PetalLength);
+          }else if (value === 'PetalWidth'){
+            update(data.PetalWidth);
+          }
+        }
+
+      });
 
 
 
