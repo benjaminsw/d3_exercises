@@ -8,8 +8,9 @@
 </head>
 <body>
     <script type="text/javascript">
-            d3.csv("data/cities.csv", function(data) {
-				console.log(data[0]);
+        var data = d3.csv("data/cities.csv", function(data) {
+				console.log(data);
+        //document.write(data);
 			});
     </script>
 </body>
